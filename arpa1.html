@@ -1,0 +1,71 @@
+<HTML>
+<meta lang = "fi">
+
+<style>
+
+body {
+    width:400px;
+    height:400px;
+    margin:auto;
+}
+button {
+    margin:auto;
+    text-align:center;
+    float:center;
+}
+#nimi {
+    height: 150px;
+    width: 350px;
+    background-color: yellow;
+    text-align: center;
+    border-radius: 20px;
+}
+#program {
+    height:150px;
+    width: 150px;
+    background-color: green;
+    text-align: center;
+    float: center;
+    border-radius: 20px;
+}
+</style>
+
+
+<body>
+<div id="nimi">
+</div>
+</br>
+
+<div id ="laatikko">
+    <button onclick="arvonta()">Arvo suunnittelija ja järjestelmä</button>
+    <button onclick="window.location.reload();">Aloita alusta</button>
+</div>
+</body>
+
+<script>
+let ihmiset = ["Miska","Heli","Elina","Essi","Joonas"]
+let programs = ["CHAA","CCC","Opera","AneDigi","CHA CC"] 
+
+function arvonta() {
+
+if (ihmiset.length == 0) {
+    document.getElementById("nimi").innerHTML+="</br> <h3>Järjestelmät arvottu!</h3>"
+} else {
+ let arpa1 = ihmiset[Math.floor(Math.random() * ihmiset.length)]
+ let arpa2 = programs[Math.floor(Math.random()* programs.length)]
+
+ let poisto1  = ihmiset.indexOf(arpa1);
+ let poisto2 = programs.indexOf(arpa2);
+ ihmiset.splice(poisto1,1)
+ programs.splice(poisto2,1)
+
+ console.log(ihmiset);
+
+ let laatikko1 = document.getElementById("nimi");
+ let laatikko2 = document.getElementById("program");
+laatikko1.innerHTML+= "</br>"+arpa1 +" - " +arpa2;
+}
+}
+</script>
+
+</HTML>
